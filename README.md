@@ -1,2 +1,47 @@
-# based_ssh
-Control a computer and activate hardware with only SMS messages
+########################################################################################################################
+#                                                                                                                      #
+# DEPENDENCIES: Twilio Python API (twilio.twiml), Paramiko python Library, Flask python library, Ngrok                 #
+#		--all python libraries are availible through PIP for easy install--                                    #
+#                                                                                                                      #
+########################################################################################################################
+#                                                                                                                      #
+# This is a proof of concept python script using the Twilio API to enable control of hardware or software devices via  #
+# SMS messages.                                                                                                        #
+#                                                                                                                      #
+# The goal of this was to control hardware easily through SMS which was done by triggering scripts written             #
+# in the arduino IDE on an Intel Edison. In the future I would like to flesh this project out and start moving towards #
+# home automation. I also plan on moving away from SSH and towards scripts fetching SMS commands via databases.        #
+#                                                                                                                      #
+# SSH was only used as a proof of concept, it is a horrible idea to use it in this manner due to security. It was only #
+# used because of the lack of time and the amount of time spent on Edison debugging.                                   #
+#                                                                                                                      #
+########################################################################################################################
+#                                                                                                                      #
+# SO HOW DOES IT WORK!?!?!?                                                                                            #
+#                                                                                                                      #
+# A python script sets up a flask server which constantly listens for incoming commands. The Twilio API and services   #
+# send these commands via POST when a text is relieved or sent, the incoming post is sent from the flask server        #
+# and processed through this python script which sends back POST to the api, along with commands to the intel Edison,  #
+# or whatever device you are connecting to.                                                                            #
+#                                                                                                                      #
+# Side note: I also used the program ngrok for easy tunneling for the flask server.                                    #
+#                                                                                                                      #
+########################################################################################################################
+#                                                                                                                      #
+# Where to go now!?                                                                                                    #
+#                                                                                                                      #
+# -switch from SSH to database fetching for security and ease of use                                                   # #                                                                                                                      #
+# -Add more commands and ease of use                                                                                   #
+# -add comments explaining what the hell is going on                                                                   #
+# -clean up code                                                                                                       #
+# -splash screen when connecting for the first time                                                                    #                                               
+# -!?!?!?!??!!?                                                                                                        #
+# -profit                                                                                                              #
+#                                                                                                                      #
+########################################################################################################################
+
+
+UPDATE: NGROK has stopped forwarding my post from the API through the ngrok tunnel unabling me to use this w/o port
+	forwarding or buying a domain. I will att  attatch the API logs to show that it does work and I will also 
+	include screenshots of the SMS on my phone. Not really sure how to show commands being executed on the Edison
+	but I can show the files created and ran and my test scripts if need be.
